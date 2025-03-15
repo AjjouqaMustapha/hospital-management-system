@@ -19,4 +19,5 @@ return array (
   'section' => 'Section',
   'show_all' => 'Show all',
   'status' => 'Status',
+  'Processes' => 'Processes',
 );

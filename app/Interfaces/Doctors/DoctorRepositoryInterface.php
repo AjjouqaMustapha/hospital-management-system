@@ -8,7 +8,7 @@ interface DoctorRepositoryInterface
     //get all sections
     public function index();
     public function create();
-    
+
     //store section
     public function store($request);
 

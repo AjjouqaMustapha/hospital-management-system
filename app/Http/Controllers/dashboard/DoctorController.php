@@ -21,18 +21,26 @@ class DoctorController extends Controller
 
     public function index()
     {
-        return $this->doctor->index();
-
+        $doctors =  $this->doctor->index();
+        return view('dashboard.doctors.index', compact('doctors'));
     }  
 
     public function create()
     {
-        return $this->doctor->create();
+        $data = $this->doctor->create();
+        return view('dashboard.doctors.add', $data);
     }
 
     public function store(Request $request)
     {
-        return $this->doctor->store($request);
+        try {
+            $this->doctor->store($request);
+            session()->flash('success', 'Doctor added successfully.');
+            return redirect()->route('Doctors.index');
+
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
         
     }
 

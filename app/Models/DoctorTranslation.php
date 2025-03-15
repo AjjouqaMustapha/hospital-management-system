@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class DoctorTranslation extends Model
 {
     protected $fillable =[
-        'name','appointments',
+        'name'
     ];
     use HasFactory;
 

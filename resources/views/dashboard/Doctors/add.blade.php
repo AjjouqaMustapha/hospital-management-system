@@ -62,7 +62,7 @@
                             </div>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" placeholder="{{trans('doctors.doctors_name')}}"
-                                    name="name">
+                                    name="name" autofocus>
                             </div>
                         </div>
                     </div>
@@ -125,16 +125,6 @@
                                         <option value="{{$appointment->name}}">{{$appointment->name}}</option>
                                     @endforeach
                                 </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group ">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <label class="form-label">{{trans('doctors.price')}}</label>
-                            </div>
-                            <div class="col-md-9">
-                                <input type="number" class="form-control" value="0.00" name="price">
                             </div>
                         </div>
                     </div>

@@ -24,7 +24,8 @@ class SectionRepository implements SectionRepositoryInterface
     public function update($request){
         $section = Section::findOrFail($request->id);
         $section->update([
-            'name'=> $request->name
+            'name'=> $request->name,
+            'description'=> $request->description
         ]);
 
         session()->flash('update');

@@ -17,17 +17,17 @@ class DoctorRepository implements DoctorRepositoryInterface
     use UploadTraits;
     public function index()
     {
-        $doctors = Doctor::paginate(10);
-        return view('dashboard.doctors.index', compact('doctors'));
+        return Doctor::with('doctorappointments')->paginate(10);
     }
 
 
 
     public function create()
     {
-        $sections = Section::all();
-        $appointments = Appointment::all();
-        return view('dashboard.doctors.add', compact('sections', 'appointments'));
+        return [
+            'sections' => Section::all(),
+            'appointments' => Appointment::all()
+        ];
 
     }
 
@@ -43,12 +43,12 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctors->password = Hash::make($request->password);
             $doctors->section_id = $request->section;
             $doctors->phone = $request->phone;
-            $doctors->price = $request->price;
             $doctors->status = 1;
             $doctors->save();
+            
             // store trans
             $doctors->name = $request->name;
-            $doctors->appointments = implode(",", $request->appointments);
+            $doctors->doctorappointments()->sync($request->appointments->id);
             $doctors->save();
 
 
@@ -57,11 +57,11 @@ class DoctorRepository implements DoctorRepositoryInterface
 
             DB::commit();
             session()->flash('add');
-            return redirect()->route('Doctors.index');
+            return $doctors;
 
         } catch (\Exception $e) {
             DB::rollback();
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+            throw new \Exception($e->getMessage());
         }
 
 

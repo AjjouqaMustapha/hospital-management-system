@@ -15,11 +15,10 @@ class Doctor extends Model
 
     public $translatedAttributes = [
         'name',
-        'appointments'
     ];
 
     protected $fillable = [
-        'email','email_verefied_at','password','phone','price','name','appointments','section_id'
+        'email','email_verefied_at','password','phone','name','section_id'
     ];
 
     public function image(): MorphOne
@@ -32,5 +31,9 @@ class Doctor extends Model
     }
     public function DoctorTranslation() {
         return $this -> hasOne(DoctorTranslation::class);
+    }
+
+    public function doctorappointments() {
+        return $this -> belongsToMany(Appointment::class, 'appoinment_doctor');
     }
 }
