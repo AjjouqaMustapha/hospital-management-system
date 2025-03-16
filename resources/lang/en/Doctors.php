@@ -2,6 +2,7 @@
 
 return array (
   'active' => 'Active',
+  "inactive" => "Inactive",
   'add_doctors' => 'Add doctor',
   'all_doctors' => ' All doctors',
   'appointments' => 'Appointments',
@@ -20,4 +21,10 @@ return array (
   'show_all' => 'Show all',
   'status' => 'Status',
   'Processes' => 'Processes',
+  'update_doctors' => 'Update doctor',
+  "update_password" => "Update Password",
+  "password" => "Password",
+  "update_status" => "Update Status",
+  "edit" => "Edit",
+  "delete" => "Delete",
 );

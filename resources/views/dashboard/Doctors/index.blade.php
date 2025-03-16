@@ -28,16 +28,20 @@
 	</div>
 	<!-- breadcrumb -->
 @endsection
+
 @section('content')
 	<!-- row -->
 	<div class="row row-sm">
 
-
-
-
-
-
-
+		@if ($errors->any())
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+		@endif
 
 		<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 grid-margin">
 			<div class="card">
@@ -86,7 +90,8 @@
 											<td>
 												@if($doctor->image)
 													<img src="{{Storage::url('Dashboard/img/doctors/' . $doctor->image->url)}}"
-														alt="avatar" class="rounded-circle avatar-md mr-2" style="width: 100px; height: 100px; object-fit: cover;">
+														alt="avatar" class="rounded-circle avatar-md mr-2"
+														style="width: 100px; height: 100px; object-fit: cover;">
 												@else
 													<img src="{{Storage::url('Dashboard/img/doctors/doctor.png')}}" alt="avatar"
 														class="rounded-circle avatar-md mr-2">
@@ -115,7 +120,7 @@
 											</td>
 
 											<td>
-											
+
 												{{$doctor->created_at->diffForHumans()}}
 
 											</td>
@@ -127,23 +132,29 @@
 														type="button">{{trans('doctors.Processes')}} <i
 															class="fas fa-caret-down mr-1"></i></button>
 													<div class="dropdown-menu tx-13">
-														<a class="dropdown-item" href="{{route('Doctors.edit', $doctor->id)}}"><i
+														<a class="dropdown-item"
+															href="{{route('Doctors.edit', encrypt($doctor->id))}}"><i
 																style="color: #0ba360"
-																class="text-success ti-user"></i>&nbsp;&nbsp;Edite</a>
+																class="text-success ti-user"></i>&nbsp;&nbsp;{{trans('doctors.edit')}}</a>
+
+														<a class="dropdown-item" href="#" data-toggle="modal"
+															data-target="#update_password{{$doctor->id}}"><i
+																class="text-primary ti-key"></i>&nbsp;&nbsp;{{trans('doctors.update_password')}}</a>
+
+														<a class="dropdown-item" href="#" data-toggle="modal"
+															data-target="#update_status{{$doctor->id}}"><i
+																class="text-warning ti-back-right"></i>&nbsp;&nbsp;{{trans('doctors.update_status')}}</a>
+
 														<a class="dropdown-item" href="#" data-toggle="modal"
 															data-target="#delete{{$doctor->id}}"><i
-																class="text-primary ti-key"></i>&nbsp;&nbsp;Edite Password</a>
-														<a class="dropdown-item" href="#" data-toggle="modal"
-															data-target="#delete{{$doctor->id}}"><i
-																class="text-warning ti-back-right"></i>&nbsp;&nbsp;Change status</a>
-														<a class="dropdown-item" href="#" data-toggle="modal"
-															data-target="#delete{{$doctor->id}}"><i
-																class="text-danger  ti-trash"></i>&nbsp;&nbsp;Delete</a>
+																class="text-danger  ti-trash"></i>&nbsp;&nbsp;{{trans('doctors.delete')}}</a>
 													</div>
 												</div>
 											</td>
 										</tr>
 
+										@include('dashboard.doctors.update_status')
+										@include('dashboard.doctors.update_password')
 										@include('dashboard.doctors.delete')
 										@include('dashboard.doctors.delete_select')
 									@endforeach

@@ -52,12 +52,54 @@ class DoctorController extends Controller
     public function edit(string $id)
     {
         //
+        $id = decrypt($id);
+        $data = $this->doctor->edit($id);
+        return view('dashboard.doctors.edit', $data);
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        try {
+            $this->doctor->update($request);
+            session()->flash('success', 'Doctor updated successfully.');
+            return redirect()->back();
+
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
+
+
+
+    public function update_password(Request $request)
+    {
+        try {
+            $this->doctor->update_password($request);
+            session()->flash('success', 'Password updated successfully.');
+            return redirect()->back();  
+
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
+    }
+
+
+    public function update_status(Request $request)
+    {
+        $request->validate([
+            'status' => 'required|in:1,0',
+        ]);
+        
+        try {
+            $this->doctor->update_status($request);
+            session()->flash('success', 'Status updated successfully.');
+            return redirect()->back();
+
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
+    }
+    
 
     public function destroy(Request $request)
     {

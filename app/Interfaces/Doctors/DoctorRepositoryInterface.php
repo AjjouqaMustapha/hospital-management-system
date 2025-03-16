@@ -17,4 +17,11 @@ interface DoctorRepositoryInterface
 
     public function destroy($request);
 
+
+    public function edit($id);
+
+    public function update_password($request);
+
+    public function update_status($request);
+
 }

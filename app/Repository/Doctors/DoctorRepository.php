@@ -15,13 +15,15 @@ class DoctorRepository implements DoctorRepositoryInterface
 {
 
     use UploadTraits;
+
+    //Get all doctors
     public function index()
     {
         return Doctor::with('doctorappointments')->paginate(10);
     }
 
 
-
+    //Create doctor
     public function create()
     {
         return [
@@ -31,6 +33,7 @@ class DoctorRepository implements DoctorRepositoryInterface
 
     }
 
+    //Store doctor
     public function store($request)
     {
 
@@ -48,7 +51,7 @@ class DoctorRepository implements DoctorRepositoryInterface
             
             // store trans
             $doctors->name = $request->name;
-            $doctors->doctorappointments()->sync($request->appointments->id);
+            $doctors->doctorappointments()->sync($request->appointments);
             $doctors->save();
 
 
@@ -67,11 +70,58 @@ class DoctorRepository implements DoctorRepositoryInterface
 
     }
 
+    //Edit doctor
+    public function edit($id)
+    { 
+        return [
+            'doctor' => Doctor::findorfail($id),
+            'sections' => Section::all(),
+            'appointments' => Appointment::all()
+        ];
+    }
+
+
+
+    //Update doctor
     public function update($request)
     {
+        DB::beginTransaction();
+
+        try {
+
+            $doctors = Doctor::findorfail($request->id);
+            $doctors->email = $request->email;
+            $doctors->section_id = $request->section;
+            $doctors->phone = $request->phone;
+            $doctors->status = 1;
+            $doctors->save();
+            
+            // store trans
+            $doctors->name = $request->name;
+            $doctors->doctorappointments()->sync($request->appointments);
+            $doctors->save();
+
+
+            if($request -> image){
+                if ($doctors->image) {
+                    $this->Delete_attachment('upload_image', 'doctors/' . $doctors->image->url, $doctors->id, $doctors->image->url);
+                }
+                $this->verifyAndStoreImage($request, 'image', 'doctors', 'upload_image', $doctors->id, 'App\Models\Doctor');
+            }
+            
+            DB::commit();
+            session()->flash('update');
+            return $doctors;
+
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw new \Exception($e->getMessage());
+        }
+
 
     }
     
+    //Delete doctor
     public function destroy($request)
     {
         if ($request->page_id == 1) {
@@ -99,9 +149,32 @@ class DoctorRepository implements DoctorRepositoryInterface
             return redirect()->route('Doctors.index');
 
         }
-
-
-
-
     }
+
+
+
+
+    //Update password
+    public function update_password($request)
+    {
+        $doctor = Doctor::findorfail($request->id);
+        $doctor->password = Hash::make($request->password);
+        $doctor->save();
+        session()->flash('update');
+        return $doctor;
+    }
+
+
+
+
+    //Update status
+    public function update_status($request)
+    {
+        $doctor = Doctor::findorfail($request->id);
+        $doctor->status = $request->status;
+        $doctor->save();
+        session()->flash('update');
+        return $doctor;
+    }
+
 }

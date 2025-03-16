@@ -5,17 +5,7 @@ return array (
   'show_all' => 'Alles anzeigen',
   'add_doctors' => 'Arzt hinzufügen',
   'all_doctors' => ' Alle Ärzte',
-
-
   'doctors_name' => 'Arzt name',
-
-
-
-
-
-
-
-
   'name' => 'Name',
   'section' => 'Abschnitt',
   'email' => 'Email',
@@ -25,9 +15,19 @@ return array (
   'status' => 'status',
   'created_at' => 'Erstellt am',
   'proccess' => 'Aktion',
-
   'active' => 'Aktiv',
   'desacitive' => 'Inaktiv',
   'dimage' => 'Artz Bild',
+  'delete_select' => 'Möchten Sie diesen Arzt löschen!',
+  'Processes' => 'Prozesse',
+  'update_doctors' => 'Arzt aktualisieren',
+  "update_password" => "Passwort aktualisieren",
+  "password" => "Passwort",
+  "update_status" => "Status aktualisieren",
+  "inactive" => "Inaktiv",
+  "edit_doctor" => "Arzt bearbeiten",
+  "delete_doctor" => "Arzt löschen",
+  "edit" => "Bearbeiten",
+  "delete" => "Löschen",
 
 );
