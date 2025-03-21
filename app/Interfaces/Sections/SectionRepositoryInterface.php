@@ -14,6 +14,10 @@ interface SectionRepositoryInterface
     //update section
     public function update($request);
 
+    //show section
+    public function show($id);
+
+    //delete section
     public function destroy($request);
 
 }

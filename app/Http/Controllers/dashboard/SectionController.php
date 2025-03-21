@@ -47,6 +47,13 @@ class SectionController extends Controller
 
     }
 
+
+    public function show($id)
+    {
+        $doctors = $this->Section->show($id);
+        return view('dashboard.sections.show', compact('doctors'));
+    }
+
     /**
      * Remove the specified resource from storage.
      */

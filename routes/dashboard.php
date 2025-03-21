@@ -57,6 +57,7 @@ Route::group(
 
             Route::put('Doctors/update_password', [DoctorController::class, 'update_password'])->name('Doctors.update_password');
             Route::put('Doctors/update_status', [DoctorController::class, 'update_status'])->name('Doctors.update_status');
+            
             Route::resource('Doctors', DoctorController::class);
 
             ################### end Doctors ###################

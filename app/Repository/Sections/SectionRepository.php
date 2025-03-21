@@ -2,6 +2,7 @@
 namespace App\Repository\Sections;   
 
 use App\Interfaces\Sections\SectionRepositoryInterface; 
+use App\Models\Doctor;
 use Illuminate\Database\Eloquent\Model; 
 use App\Models\Section;  
 
@@ -30,6 +31,14 @@ class SectionRepository implements SectionRepositoryInterface
 
         session()->flash('update');
         return redirect()->route('Sections.index');
+    }
+
+    public function show($id){
+
+        $id = decrypt($id);
+
+        $doctors = Section::findOrFail($id)->doctors()->paginate(10);
+        return $doctors;
     }
 
     public function destroy($request){

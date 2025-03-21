@@ -66,7 +66,9 @@
 								@foreach ($sections as $section)
 									<tr>
 										<td>{{$section->id}}</td>
-										<td>{{$section->name}}</td>
+										<td>
+											<a href="{{ route('Sections.show',encrypt($section->id)) }}">{{$section->name}}</a>
+										</td>
 										<td>{{\Str::limit($section->description,50)}}</td>
 										<td>{{$section->created_at->diffForHumans()}}</td>
 										<td class="d-flex justify-content-center ">
