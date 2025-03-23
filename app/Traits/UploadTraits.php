@@ -30,15 +30,9 @@ trait UploadTraits {
             $Image->imageable_type = $imageable_type;
             $Image->save();
             return $request->file($inputname)->storeAs($foldername, $filename, $disk);
-
         }
-
         return null;
-
     }
-
-
-
     public function Delete_attachment($disk, $path, $id, $filename){
         Storage::disk($disk)->delete($path);
         Image::where('imageable_id',$id)->where('url',$filename)->delete();

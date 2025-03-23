@@ -16,4 +16,5 @@ return [
     'add'=>'data added successfully',
     'update'=>'data updated successfully',
     'delete'=>'data deleted successfully',
+    'error'=>'an error occurred, please try again',
 ];

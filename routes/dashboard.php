@@ -3,6 +3,7 @@
 use App\Http\Controllers\dashboard\dashboardController;
 use App\Http\Controllers\dashboard\DoctorController;
 use App\Http\Controllers\dashboard\SectionController;
+use App\Http\Controllers\dashboard\SingleServiceController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -61,7 +62,18 @@ Route::group(
             Route::resource('Doctors', DoctorController::class);
 
             ################### end Doctors ###################
-    
+            
+            ################### Service ###################
+
+            Route::resource('Service', SingleServiceController::class);
+
+
+
+            ################### End Service ###################
+
+
+
+
         });
 
 

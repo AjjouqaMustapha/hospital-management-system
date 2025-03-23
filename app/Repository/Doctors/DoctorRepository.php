@@ -108,7 +108,6 @@ class DoctorRepository implements DoctorRepositoryInterface
                 }
                 $this->verifyAndStoreImage($request, 'image', 'doctors', 'upload_image', $doctors->id, 'App\Models\Doctor');
             }
-            
             DB::commit();
             session()->flash('update');
             return $doctors;
@@ -117,10 +116,7 @@ class DoctorRepository implements DoctorRepositoryInterface
             DB::rollback();
             throw new \Exception($e->getMessage());
         }
-
-
     }
-    
     //Delete doctor
     public function destroy($request)
     {

@@ -32,3 +32,14 @@
         }
     </script>
 @endif
+
+@if (session()->has('error'))
+    <script>
+        window.onload = function () {
+            notif({
+                msg: "{{trans('dashboard/message.error')}}",
+                type: 'error'
+            });
+        }
+    </script>
+@endif

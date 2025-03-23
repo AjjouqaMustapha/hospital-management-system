@@ -122,7 +122,7 @@
                             <div class="col-md-9">
                                 <select multiple="multiple" class="form-control select2" name="appointments[]">
                                     @foreach ($appointments as $appointment)
-                                        <option value="{{$appointment->name}}">{{$appointment->name}}</option>
+                                        <option value="{{$appointment->id}}">{{$appointment->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
