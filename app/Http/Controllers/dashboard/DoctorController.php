@@ -69,8 +69,6 @@ class DoctorController extends Controller
         }
     }
 
-
-
     public function update_password(Request $request)
     {
         try {

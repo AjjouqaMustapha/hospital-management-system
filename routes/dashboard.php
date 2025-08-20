@@ -7,6 +7,8 @@ use App\Http\Controllers\dashboard\SingleServiceController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Livewire\CreateGroupServices;
+use Livewire\Livewire;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +22,16 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
 
 
-
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
+
+        Livewire::setUpdateRoute(fn($handle) => Route::post('/livewire/update', $handle));
+
+        Livewire::setScriptRoute(fn($handle) => Route::get('/livewire/livewire.js', $handle));
 
         ################### dashboard ###################
         ################### user ###################
@@ -42,45 +47,30 @@ Route::group(
             return view('dashboard.admin.dashboard');
         })->middleware(['auth:admin'])->name('dashboard.admin');
         ################### endadmin ###################
+        
         ################### end dashboard ###################
-    
         //--------------------------------------------------------------------------------------------------
-    
         Route::middleware(['auth:admin'])->group(function () {
 
             ################### section ###################
-
             Route::resource('Sections', SectionController::class);
-            
             ################### end section ###################
 
             ################### Doctors ###################
-
             Route::put('Doctors/update_password', [DoctorController::class, 'update_password'])->name('Doctors.update_password');
             Route::put('Doctors/update_status', [DoctorController::class, 'update_status'])->name('Doctors.update_status');
             
             Route::resource('Doctors', DoctorController::class);
-
             ################### end Doctors ###################
             
             ################### Service ###################
-
             Route::resource('Service', SingleServiceController::class);
-
-
-
             ################### End Service ###################
 
-
-
+            ################### Groupe services route ###################
+            Route::view('Add_GroupServices', 'livewire.GroupServices.include_create')->name('Add_GroupServices');
 
         });
-
-
-
-
-
-
         require __DIR__ . '/auth.php';
 
     }

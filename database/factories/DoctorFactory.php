@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Doctor;
 use App\Models\Section;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

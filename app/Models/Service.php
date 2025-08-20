@@ -15,5 +15,16 @@ class Service extends Model
     protected $fillable = ['price', 'description','status'];
 
 
+    protected $guarded = [];
+    public function group()
+    {
+        return $this->belongsToMany(Group::class, 'service_group', 'service_id', 'group_id');
+    }
+    public function serviceTranslation()
+    {
+        return $this->hasMany(ServiceTranslation::class);
+    }
+    
+
     
 }

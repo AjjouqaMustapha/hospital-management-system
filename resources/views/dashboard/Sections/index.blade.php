@@ -1,19 +1,6 @@
 @extends('dashboard.layouts.master')
 @section('css')
-<link href="{{URL::asset('dashboard/plugins/datatable/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
-<link href="{{URL::asset('dashboard/plugins/datatable/css/buttons.bootstrap4.min.css')}}" rel="stylesheet">
-<link href="{{URL::asset('dashboard/plugins/datatable/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" />
-<link href="{{URL::asset('dashboard/plugins/datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
-<link href="{{URL::asset('dashboard/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
-<link href="{{URL::asset('dashboard/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
-<!---Internal Owl Carousel css-->
-<link href="{{URL::asset('dashboard/plugins/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
-<!---Internal  Multislider css-->
-<link href="{{URL::asset('dashboard/plugins/multislider/multislider.css')}}" rel="stylesheet">
-<!--- Select2 css -->
-<link href="{{URL::asset('dashboard/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
-<!--Internal   Notify -->
-<link href="{{URL::asset('dashboard/plugins/notify/css/notifIt.css')}}" rel="stylesheet" />
+
 @endsection
 @section('page-header')
 <!-- breadcrumb -->
@@ -48,11 +35,11 @@
 					<table class="table text-md-nowrap" id="example1">
 						<thead>
 							<tr>
-								<th class="wd-15p border-bottom-0">#</th>
-								<th class="wd-15p border-bottom-0">{{trans('dashboard/sections_trans.section_name')}}</th>
-								<th class="wd-15p border-bottom-0">{{trans('dashboard/sections_trans.section_description')}}</th>
-								<th class="wd-20p border-bottom-0">{{trans('dashboard/sections_trans.date_c')}}</th>
-								<th class="wd-15p border-bottom-0">{{trans('dashboard/sections_trans.action')}}</th>
+								<th class="wd-15p border-bottom-0" style="width:1%;">#</th>
+								<th class="wd-15p border-bottom-0 w-25">{{trans('dashboard/sections_trans.section_name')}}</th>
+								<th class="wd-15p border-bottom-0 w-25">{{trans('dashboard/sections_trans.section_description')}}</th>
+								<th class="wd-20p border-bottom-0 ">{{trans('dashboard/sections_trans.date_c')}}</th>
+								<th class="wd-15p border-bottom-0 text-center">{{trans('dashboard/sections_trans.action')}}</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -103,31 +90,5 @@
 <!-- main-content closed -->
 @endsection
 @section('js')
-<!-- Internal Data tables -->
-<script src="{{URL::asset('dashboard/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/datatable/js/dataTables.dataTables.min.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/datatable/js/responsive.dataTables.min.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/datatable/js/jquery.dataTables.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/datatable/js/dataTables.bootstrap4.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/datatable/js/dataTables.buttons.min.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/datatable/js/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/datatable/js/jszip.min.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/datatable/js/pdfmake.min.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/datatable/js/vfs_fonts.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/datatable/js/buttons.html5.min.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/datatable/js/buttons.print.min.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/datatable/js/buttons.colVis.min.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/datatable/js/responsive.bootstrap4.min.js')}}"></script>
-<!--Internal  Datepicker js -->
-<script src="{{URL::asset('dashboard/plugins/jquery-ui/ui/widgets/datepicker.js')}}"></script>
-<!-- Internal Select2 js-->
-<script src="{{URL::asset('dashboard/plugins/select2/js/select2.min.js')}}"></script>
-<!-- Internal Modal js-->
-<script src="{{URL::asset('dashboard/js/modal.js')}}"></script>
 
-<!--Internal  Notify js -->
-<script src="{{URL::asset('dashboard/plugins/notify/js/notifIt.js')}}"></script>
-<script src="{{URL::asset('dashboard/plugins/notify/js/notifit-custom.js')}}"></script>
 @endsection

@@ -68,8 +68,7 @@
 									<th class=" border-bottom-0">{{trans('doctors.email')}}</th>
 									<th class=" border-bottom-0">{{trans('doctors.section')}}</th>
 									<th class=" border-bottom-0">{{trans('doctors.phone')}}</th>
-									<th class=" border-bottom-0">{{trans('doctors.appointments')}}</th>
-									<th class=" border-bottom-0">{{trans('doctors.price')}}</th>
+									<th class=" border-bottom-0 w-25">{{trans('doctors.appointments')}}</th>
 									<th class=" border-bottom-0">{{trans('doctors.status')}}</th>
 									<th class=" border-bottom-0">{{trans('doctors.created_at')}}</th>
 									<th class=" border-bottom-0">{{trans('doctors.proccess')}}</th>
@@ -106,7 +105,6 @@
 													<span class="tag tag-cyan">{{$appointment->name}}</span>
 												@endforeach
 											</td>
-											<td>{{$doctor->price}}</td>
 											<td class="text-center">
 												@if ($doctor->status == 1)
 													<span class="label text-success d-flex">

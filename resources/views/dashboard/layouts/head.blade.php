@@ -1,5 +1,22 @@
 <!-- Title -->
 <title> Hostpital </title>
+@yield('css')
+@livewireStyles
+<!-- Internal Data table css -->
+<link href="{{URL::asset('dashboard/plugins/datatable/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
+<link href="{{URL::asset('dashboard/plugins/datatable/css/buttons.bootstrap4.min.css')}}" rel="stylesheet">
+<link href="{{URL::asset('dashboard/plugins/datatable/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" />
+<link href="{{URL::asset('dashboard/plugins/datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+<link href="{{URL::asset('dashboard/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
+<link href="{{URL::asset('dashboard/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
+<!---Internal Owl Carousel css-->
+<link href="{{URL::asset('dashboard/plugins/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
+<!---Internal  Multislider css-->
+<link href="{{URL::asset('dashboard/plugins/multislider/multislider.css')}}" rel="stylesheet">
+<!--- Select2 css -->
+<link href="{{URL::asset('dashboard/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
+<!--Internal   Notify -->
+<link href="{{URL::asset('dashboard/plugins/notify/css/notifIt.css')}}" rel="stylesheet" />
 @if (App::getLocale() == 'ar')
 
     <link rel="icon" href="{{URL::asset('dashboard/img/brand/favicon.png')}}" type="image/x-icon" />

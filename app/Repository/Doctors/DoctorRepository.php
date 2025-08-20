@@ -19,7 +19,7 @@ class DoctorRepository implements DoctorRepositoryInterface
     //Get all doctors
     public function index()
     {
-        return Doctor::with('doctorappointments')->paginate(10);
+        return Doctor::with('doctorappointments')->orderBy('created_at','desc')->paginate(10);
     }
 
 
@@ -47,6 +47,9 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctors->section_id = $request->section;
             $doctors->phone = $request->phone;
             $doctors->status = 1;
+
+
+            dd($doctors);
             $doctors->save();
             
             // store trans
@@ -96,7 +99,6 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctors->status = 1;
             $doctors->save();
             
-            // store trans
             $doctors->name = $request->name;
             $doctors->doctorappointments()->sync($request->appointments);
             $doctors->save();
@@ -117,6 +119,7 @@ class DoctorRepository implements DoctorRepositoryInterface
             throw new \Exception($e->getMessage());
         }
     }
+
     //Delete doctor
     public function destroy($request)
     {
@@ -146,10 +149,6 @@ class DoctorRepository implements DoctorRepositoryInterface
 
         }
     }
-
-
-
-
     //Update password
     public function update_password($request)
     {
