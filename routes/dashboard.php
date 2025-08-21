@@ -11,6 +11,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Livewire\CreateGroupServices;
 use Livewire\Livewire;
 use \App\Http\Controllers\dashboard\InsuranceController;
+use \App\Http\Controllers\dashboard\PatientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,11 @@ Route::group(
             ################### Ambulance ###################
             Route::resource('Ambulance', AmbulanceController::class);
             ################### End Ambulance ###################
+
+            ################### Patient ###################
+            Route::put('Patient/update_password', [PatientController::class, 'update_password'])->name('Patient.update_password');
+            Route::resource('Patient', PatientController::class);
+            #################### End Patient ###################
             
             ################### Groupe services route ###################
             Route::view('Add_GroupServices', 'livewire.GroupServices.include_create')->name('Add_GroupServices');

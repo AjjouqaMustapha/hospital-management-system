@@ -13,6 +13,8 @@ use App\Interfaces\Insurances\InsuranceRepositoryInterface;
 use App\Repository\Insurances\InsuranceRepository;
 use App\Repository\Ambulances\AmbulanceRepository;
 use App\Interfaces\Ambulances\AmbulanceRepositoryInterface;
+use App\Interfaces\Patients\PatientRepositoryInterface;
+use App\Repository\Patients\PatientRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -27,6 +29,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(SingleServiceRepositoryInterface::class, SingleServiceRepository::class);
         $this->app->bind(InsuranceRepositoryInterface::class, InsuranceRepository::class);
         $this->app->bind(AmbulanceRepositoryInterface::class, AmbulanceRepository::class);
+        $this->app->bind(PatientRepositoryInterface::class, PatientRepository::class);
 
     }
 
