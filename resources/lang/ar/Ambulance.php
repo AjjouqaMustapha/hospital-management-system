@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'ambulance' => 'سيارة إسعاف',
+    'ambulances' => 'سيارات الإسعاف',
+    'ambulance_calls' => 'مكالمات الإسعاف',
+    'ambulance_call' => 'مكالمة إسعاف',
+    'ambulance_number' => 'رقم السيارة الإسعاف',
+    'ambulance_type' => 'نوع السيارة الإسعاف',
+    'ambulance_status' => 'حالة السيارة الإسعاف',
+    'ambulance_created_successfully' => 'تم إنشاء سيارة الإسعاف بنجاح',
+    'ambulance_updated_successfully' => 'تم تحديث سيارة الإسعاف بنجاح',
+    'ambulance_deleted_successfully' => 'تم حذف سيارة الإسعاف بنجاح',
+    'driver_name' => 'اسم السائق',
+    'driver_phone' => 'هاتف السائق',
+    'phone_number' => 'رقم الهاتف',
+    'ambulance_model' => 'موديل سيارة الإسعاف',
+    'notes' => 'ملاحظات',
+    'yrear_of_manufacture' => 'سنة الصنع',
+    'license_driving_number' => 'رقم رخصة القيادة',
+    'add_ambulance' => 'إضافة سيارة إسعاف',
+    'edit_ambulance' => 'تعديل سيارة الإسعاف',
+    'ambulance_details' => 'تفاصيل سيارة الإسعاف',
+    'owned' => 'مملوكة',
+    'rinted' => 'مستأجرة',
+];

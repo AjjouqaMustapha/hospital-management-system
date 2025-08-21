@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'ambulance' => 'Ambulance',
+    'ambulances' => 'Ambulances',
+    'ambulance_calls' => 'Ambulance Calls',
+    'ambulance_call' => 'Ambulance Call',
+    'ambulance_number' => 'Ambulance Number',
+    'ambulance_type' => 'Ambulance Type',
+    'ambulance_status' => 'Ambulance Status',
+    'ambulance_created_successfully' => 'Ambulance created successfully',
+    'ambulance_updated_successfully' => 'Ambulance updated successfully',
+    'ambulance_deleted_successfully' => 'Ambulance deleted successfully',
+    'driver_name' => 'Driver Name',
+    'driver_phone' => 'Driver Phone',
+    'phone_number' => 'Phone Number',
+    'ambulance_model' => 'Ambulance Model',
+    'notes' => 'Notes',
+    'year_of_manufacture' => 'Year of Manufacture',
+    'license_driving_number' => 'Driver License Number',
+    'add_ambulance' => 'Add Ambulance',
+    'edit_ambulance' => 'Edit Ambulance',
+    'ambulance_details' => 'Ambulance Details',
+    'owned' => 'Owned',
+    'rinted' => 'Rented',
+];

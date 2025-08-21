@@ -43,4 +43,6 @@ return array (
     'total_after_discount' => 'الاجمالي بعد الخصم',
     'group_name' => 'اسم المجموعة',
     'back'=> 'رجوع',
+    'notes' => 'ملاحظات',
+    'delete_text_group' => 'هل أنت متأكد من حذف المجموعة ":group" ؟',
 );

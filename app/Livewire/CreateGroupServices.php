@@ -24,7 +24,8 @@ class CreateGroupServices extends Component
         $this->showTable = false;
     }
 
-    public function dimissFormAdd(){
+    public function dimissFormAdd()
+    {
         $this->showTable = true;
     }
 
@@ -104,38 +105,78 @@ class CreateGroupServices extends Component
 
     public function saveGroup()
     {
-        $Groups = new Group();
-        $total = 0;
-
-        foreach ($this->GroupsItems as $groupItem) {
-            if ($groupItem['is_saved'] && $groupItem['service_price'] && $groupItem['quantity']) {
-                $total += $groupItem['service_price'] * $groupItem['quantity'];
+        if ($this->updateMode) {
+            $Group = Group::find($this->group_id);
+            if (!$Group) {
+                $this->addError('group_id', 'Group not found.');
+                return;
             }
+            $total = 0;
+            foreach ($this->GroupsItems as $groupItem) {
+                if ($groupItem['is_saved'] && $groupItem['service_price'] && $groupItem['quantity']) {
+                    $total += $groupItem['service_price'] * $groupItem['quantity'];
+                }
+            }
+            $Group->total_befor_discount = $total;
+            $Group->discount_value = $this->discount_value;
+            $Group->total_after_discount = $total - (is_numeric($this->discount_value) ? $this->discount_value : 0);
+            $Group->tax_rate = $this->taxes;
+            $Group->total_with_tax = $Group->total_after_discount * (1 + (is_numeric($this->taxes) ? $this->taxes : 0) / 100);
+            $Group->save(); 
+
+            $Group->translations()->updateOrCreate(
+                ['locale' => app()->getLocale()],
+                ['name' => $this->name_group, 'notes' => $this->notes]
+            );
+            $Group->service_group()->detach();
+            foreach ($this->GroupsItems as $GroupsItem) {
+                if ($GroupsItem['is_saved']) {
+                    $Group->service_group()->attach($GroupsItem['service_id'], ['quantity' => $GroupsItem['quantity']]);
+                }
+            }
+            $this->reset('GroupsItems', 'name_group', 'notes');
+            $this->discount_value = 0;
+            $this->ServiceSaved = true;
+            $this->updateMode = false;
+            $this->showTable = true;
+            $this->group_id = null;
+            $this->dispatch('groupUpdated', ['group' => $Group]);
+
+        } else {
+            $Groups = new Group();
+            $total = 0;
+
+            foreach ($this->GroupsItems as $groupItem) {
+                if ($groupItem['is_saved'] && $groupItem['service_price'] && $groupItem['quantity']) {
+                    $total += $groupItem['service_price'] * $groupItem['quantity'];
+                }
+            }
+
+            $Groups->total_befor_discount = $total;
+            $Groups->discount_value = $this->discount_value;
+            $Groups->total_after_discount = $total - (is_numeric($this->discount_value) ? $this->discount_value : 0);
+            $Groups->tax_rate = $this->taxes;
+            $Groups->total_with_tax = $Groups->total_after_discount * (1 + (is_numeric($this->taxes) ? $this->taxes : 0) / 100);
+            $Groups->save();
+
+            $GroupTranslation = new \App\Models\GroupTranslation();
+            $GroupTranslation->name = $this->name_group;
+            $GroupTranslation->notes = $this->notes;
+            $GroupTranslation->group_id = $Groups->id;
+            $GroupTranslation->locale = app()->getLocale();
+            $GroupTranslation->save();
+            foreach ($this->GroupsItems as $GroupsItem) {
+                $Groups->service_group()->attach($GroupsItem['service_id'], ['quantity' => $GroupsItem['quantity']]);
+            }
+
+            $this->reset('GroupsItems', 'name_group', 'notes');
+            $this->discount_value = 0;
+            $this->ServiceSaved = true;
         }
-
-        $Groups->total_befor_discount = $total;
-        $Groups->discount_value = $this->discount_value;
-        $Groups->total_after_discount = $total - (is_numeric($this->discount_value) ? $this->discount_value : 0);
-        $Groups->tax_rate = $this->taxes;
-        $Groups->total_with_tax = $Groups->total_after_discount * (1 + (is_numeric($this->taxes) ? $this->taxes : 0) / 100);
-        $Groups->save();
-
-        $GroupTranslation = new \App\Models\GroupTranslation();
-        $GroupTranslation->name = $this->name_group;
-        $GroupTranslation->notes = $this->notes;
-        $GroupTranslation->group_id = $Groups->id;
-        $GroupTranslation->locale = app()->getLocale();
-        $GroupTranslation->save();
-        foreach ($this->GroupsItems as $GroupsItem) {
-            $Groups->service_group()->attach($GroupsItem['service_id'], ['quantity' => $GroupsItem['quantity']]);
-        }
-
-        $this->reset('GroupsItems', 'name_group', 'notes');
-        $this->discount_value = 0;
-        $this->ServiceSaved = true;
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $this->showTable = false;
         $this->updateMode = true;
         $group = Group::where('id', $id)->first();
@@ -144,7 +185,7 @@ class CreateGroupServices extends Component
         $this->reset('GroupsItems', 'name_group', 'notes');
         $this->name_group = $group->name;
         $this->notes = $group->notes;
-        
+
         $this->discount_value = intval($group->discount_value);
         $this->ServiceSaved = false;
 
@@ -158,4 +199,20 @@ class CreateGroupServices extends Component
             ];
         })->toArray();
     }
+
+    public function delete($id)
+    {
+        $group = Group::find($id);
+        if ($group) {
+            $group->service_group()->detach();
+            $group->delete();
+            $this->dispatch('groupDeleted', ['group' => $group]);
+        } else {
+            $this->addError('delete', 'Group not found.');
+        }
+
+        return redirect()->route('Add_GroupServices');
+    }
+
+
 }

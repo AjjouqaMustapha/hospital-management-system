@@ -1,0 +1,26 @@
+<?php 
+
+return [
+    'ambulance' => 'Krankenwagen',
+    'ambulances' => 'Krankenwagen',
+    'ambulance_calls' => 'Rettungswagen-Einsätze',
+    'ambulance_call' => 'Rettungswagen-Einsatz',
+    'ambulance_number' => 'Krankenwagen-Nummer',
+    'ambulance_type' => 'Krankenwagen-Typ',
+    'ambulance_status' => 'Krankenwagen-Status',
+    'ambulance_created_successfully' => 'Krankenwagen erfolgreich erstellt',
+    'ambulance_updated_successfully' => 'Krankenwagen erfolgreich aktualisiert',
+    'ambulance_deleted_successfully' => 'Krankenwagen erfolgreich gelöscht',
+    'driver_name' => 'Fahrername',
+    'driver_phone' => 'Fahrertelefon',
+    'phone_number' => 'Telefonnummer',
+    'ambulance_model' => 'Krankenwagen-Modell',
+    'notes' => 'Notizen',
+    'year_of_manufacture' => 'Baujahr',
+    'license_driving_number' => 'Führerscheinnummer',
+    'add_ambulance' => 'Krankenwagen hinzufügen',
+    'edit_ambulance' => 'Krankenwagen bearbeiten',
+    'ambulance_details' => 'Krankenwagen-Details',
+    'owned' => 'Eigentum',
+    'rinted' => 'Gemietet',
+];

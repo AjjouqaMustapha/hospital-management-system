@@ -22,7 +22,7 @@ class StoreSingleServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required','unique:service_translations,name,'.$this->id],
+            'name' => ['required','unique:service_translations,name,'.$this->id.',service_id'],
             'price' => ['required', 'numeric'],
         ];
     }

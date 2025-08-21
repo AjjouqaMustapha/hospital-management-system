@@ -6,10 +6,11 @@ use App\Interfaces\Doctors\DoctorRepositoryInterface;
 use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Traits\UploadTraits;
-use DB;
-use Hash;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Section;
+
 
 class DoctorRepository implements DoctorRepositoryInterface
 {

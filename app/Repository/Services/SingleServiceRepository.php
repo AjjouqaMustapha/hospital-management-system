@@ -3,7 +3,7 @@ namespace App\Repository\Services;
 
 use App\Interfaces\Services\SingleServiceRepositoryInterface;
 use App\Models\Service;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class SingleServiceRepository implements SingleServiceRepositoryInterface
 {

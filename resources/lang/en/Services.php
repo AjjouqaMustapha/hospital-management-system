@@ -36,4 +36,8 @@ return array (
     'taxes' => 'Taxes',
     'total_with_tax' => 'Total with Tax',
     'confirm_data' => 'Confirm Data',
+    'notes' => 'Notes',
+    'group_name' => 'Group Name',
+    'back'=> 'Back',
+    'delete_text_group' => 'Are you sure you want to delete this group ":group" ?',
 );

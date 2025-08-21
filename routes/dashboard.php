@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\dashboard\AmbulanceController;
 use App\Http\Controllers\dashboard\dashboardController;
 use App\Http\Controllers\dashboard\DoctorController;
 use App\Http\Controllers\dashboard\SectionController;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Livewire\CreateGroupServices;
 use Livewire\Livewire;
+use \App\Http\Controllers\dashboard\InsuranceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +69,14 @@ Route::group(
             Route::resource('Service', SingleServiceController::class);
             ################### End Service ###################
 
+            ################### Insurence ###################
+            Route::resource('Insurances', InsuranceController::class);
+            ################### End Insurence ###################
+
+            ################### Ambulance ###################
+            Route::resource('Ambulance', AmbulanceController::class);
+            ################### End Ambulance ###################
+            
             ################### Groupe services route ###################
             Route::view('Add_GroupServices', 'livewire.GroupServices.include_create')->name('Add_GroupServices');
 

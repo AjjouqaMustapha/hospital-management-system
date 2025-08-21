@@ -1,0 +1,27 @@
+<?php
+
+return array (
+    'Insurance' => 'Versicherung',
+    'Insurances' => 'Versicherungen',
+    'Insurance_Name' => 'Versicherungsname',
+    'Company_code' => 'Firmencode',
+    'Insurance_Description' => 'Versicherungsbeschreibung',
+    'Status' => 'Status',
+    'discount_percentage' => 'Rabattprozentsatz',
+    'Insurance_bearing_percentage' => 'Versicherungsbeteiligung in Prozent',
+    'date_c' => 'Erstellungsdatum',
+    'action' => 'Aktion',
+    'Edit' => 'Bearbeiten',
+    'save' => 'Speichern',
+    'add_insurance_company' => 'Versicherungsgesellschaft hinzufügen',
+    'Delete' => 'Löschen',
+    'Update' => 'Aktualisieren',
+    'description' => 'Beschreibung',
+    'Active' => 'Aktiv',
+    'Inactive' => 'Inaktiv',
+    'Add_Insurance' => 'Versicherung hinzufügen',
+    'Edit_Insurance' => 'Versicherung bearbeiten',
+    'Delete_Insurance' => 'Versicherung löschen',
+    'Are_you_sure_you_want_to_delete_this_insurance?' => 'Sind Sie sicher, dass Sie diese Versicherung löschen möchten?',
+    'update_Insurance' => 'Versicherung aktualisieren',
+);

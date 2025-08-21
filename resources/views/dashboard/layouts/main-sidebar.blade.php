@@ -44,8 +44,8 @@
 						<ul class="slide-menu">
 							<li><a class="slide-item" href="{{route('Service.index') }}">{{ trans('dashboard/main-sidebar_trans.single_service') }}</a></li>
 							<li><a class="slide-item" href="{{route('Add_GroupServices') }}">{{ trans('dashboard/main-sidebar_trans.multiple_service') }}</a></li>
-							<li><a class="slide-item" href="{{ url('/' . $page='rangeslider') }}">{{ trans('dashboard/main-sidebar_trans.assurance_companies') }}</a></li>
-							<li><a class="slide-item" href="{{ url('/' . $page='calendar') }}">{{ trans('dashboard/main-sidebar_trans.ambulance') }}</a></li>
+							<li><a class="slide-item" href="{{route('Insurances.index') }}">{{ trans('dashboard/main-sidebar_trans.assurance_companies') }}</a></li>
+							<li><a class="slide-item" href="{{route('Ambulance.index') }}">{{ trans('dashboard/main-sidebar_trans.ambulance') }}</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='calendar') }}">{{ trans('dashboard/main-sidebar_trans.ambulance_calls') }}</a></li>
 						</ul>
 					</li>

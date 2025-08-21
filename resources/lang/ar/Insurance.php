@@ -1,0 +1,27 @@
+<?php 
+
+return array (
+    'Insurance' => 'تأمين',
+    'Insurances' => 'تأمينات',
+    'Insurance_Name' => 'اسم التأمين',
+    'Company_code' => 'رمز الشركة',
+    'Insurance_Description' => 'وصف التأمين',
+    'Status' => 'الحالة',
+    'discount_percentage' => 'نسبة الخصم',
+    'Insurance_bearing_percentage' => 'نسبة تحمل التأمين',
+    'date_c' => 'تاريخ الإنشاء',
+    'action' => 'الإجراء',
+    'Edit' => 'تعديل',
+    'save' => 'حفظ',
+    'add_insurance_company' => 'إضافة شركة تأمين',
+    'Delete' => 'حذف',
+    'Update' => 'تحديث',
+    'description' => 'الوصف',
+    'Active' => 'نشط',
+    'Inactive' => 'غير نشط',
+    'Add_Insurance' => 'إضافة تأمين',
+    'Edit_Insurance' => 'تعديل تأمين',
+    'Delete_Insurance' => 'حذف تأمين',
+    'Are_you_sure_you_want_to_delete_this_insurance?' => 'هل أنت متأكد من رغبتك في حذف هذا التأمين؟',
+    'update_Insurance' => 'تحديث التأمين',
+);

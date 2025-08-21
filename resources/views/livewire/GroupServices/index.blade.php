@@ -43,8 +43,15 @@
                         </td>
                         <td>
                             <button wire:click="edit({{ $data->id }})" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
+
+                            <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
+													data-toggle="modal" href="#delete{{$data->id}}"><i
+														class="las la-trash"></i></a>
+                            
                         </td>
                     </tr>
+
+                    @include('livewire.GroupServices.delete', ['data' => $data])
                 @endforeach
 
             </tbody>

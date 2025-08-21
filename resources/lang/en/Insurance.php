@@ -1,0 +1,27 @@
+<?php 
+
+return array (
+    'Insurance' => 'Insurance',
+    'Insurances' => 'Insurances',
+    'Insurance_Name' => 'Insurance Name',
+    'Company_code' => 'Company Code',
+    'Insurance_Description' => 'Insurance Description',
+    'Status' => 'Status',
+    'discount_percentage' => 'Discount Percentage',
+    'Insurance_bearing_percentage' => 'Insurance Bearing Percentage',
+    'date_c' => 'Date Created',
+    'action' => 'Action',
+    'Edit' => 'Edit',
+    'save' => 'Save',
+    'add_insurance_company' => 'Add Insurance Company',
+    'Delete' => 'Delete',
+    'Update' => 'Update',
+    'description' => 'Description',
+    'Active' => 'Active',
+    'Inactive' => 'Inactive',
+    'Add_Insurance' => 'Add Insurance',
+    'Edit_Insurance' => 'Edit Insurance',
+    'Delete_Insurance' => 'Delete Insurance',
+    'Are_you_sure_you_want_to_delete_this_insurance?' => 'Are you sure you want to delete this insurance?',
+    'update_Insurance' => 'Update Insurance',
+);

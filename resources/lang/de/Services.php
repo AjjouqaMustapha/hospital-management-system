@@ -40,4 +40,9 @@ return array (
     'total_before_discount' => 'Gesamt vor Rabatt',
     'discount' => 'Rabatt',
     'total_after_discount' => 'Gesamt nach Rabatt',
+    'group_name' => 'Name der Gruppe',
+    'back'=> 'Zurück',
+    'notes' => 'Notizen',
+    'delete_text_group' => 'Möchten Sie diese Gruppe ":group" wirklich löschen?',
+
 );
